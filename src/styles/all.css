@@ -1,0 +1,8 @@
+/* 1. Tailwind v4 */
+@import 'tailwindcss';
+
+/* 2. Design tokens（顏色、字體、spacing、container、RWD 可變值） */
+@import './tokens.css';
+
+/* 3. CSS Reset + Base element styles + .container */
+@import './base.css';

@@ -1,0 +1,79 @@
+/* ─────────────────────────────────────────────
+   CSS Reset & Base Styles
+   ───────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  color: var(--c-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--c-white);
+  line-height: 1.6;
+  font-size: var(--fs-body);
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ─────────────────────────────────────────────
+   全站 Container
+   ───────────────────────────────────────────── */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  box-sizing: border-box;
+}
+
+/* 比較區 G 用寬版容器 */
+.container--wide {
+  max-width: var(--container-wide);
+}
+
+/* ─────────────────────────────────────────────
+   Section 共用內距
+   ───────────────────────────────────────────── */
+
+section {
+  padding-block: var(--section-pad-y);
+}
