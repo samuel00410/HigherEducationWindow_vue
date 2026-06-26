@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import './styles/all.css'
+import './styles/udn-overrides.scss'
 
 import App from './App.vue'
 import router from './router'

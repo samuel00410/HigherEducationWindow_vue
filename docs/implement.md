@@ -9,15 +9,20 @@
 
 ---
 
-## ⚠️ 先讀：技術前提衝突（需設計師 / PM 確認）
+## 技術棧確認
 
-| 來源                     | 技術指示                                                                    |
-| ------------------------ | --------------------------------------------------------------------------- |
-| 本次聊天指示（採用）     | 純 HTML + CSS，**不使用** Tailwind / Bootstrap / React，Flexbox / Grid 優先 |
-| `page-goal.md.txt` notes | Vue3 + Vite + **Tailwind**                                                  |
+| 層級     | 技術                                    | 說明                                                       |
+| -------- | --------------------------------------- | ---------------------------------------------------------- |
+| 框架     | Vue 3 + Vite                            | SFC 元件開發                                               |
+| 樣式主力 | **Tailwind CSS v4**                     | 版面、間距、顏色、RWD utility class                        |
+| 樣式副線 | **SCSS**                                | 僅用於 UDN 共用元件庫覆寫、`:deep()` 選擇器、變數 override |
+| 共用元件 | `@udn-digital-center/common-components` | 需 SCSS 才能客製化內部樣式                                 |
 
-**本規格以「純 HTML + CSS」撰寫**（聊天指示為準、且較新）。
-若實際要走 Vue3 + Tailwind，§4 的語意結構仍適用，§5/§7 的 token 改寫成 `tailwind.config` 即可。**動手前請先確認走哪條路線。**
+**使用邊界原則：**
+
+- 能用 Tailwind class 的一律用 Tailwind，不要在 SCSS 重複寫相同邏輯
+- SCSS 僅在以下情境使用：引入 UDN package 的 SCSS 變數、`:deep()` 覆寫元件內部樣式、無法用 utility class 表達的複雜選擇器
+- Design token（顏色、字級、spacing）定義於 `src/styles/tokens.css`，SCSS 可透過 `@use`/`@forward` 引用
 
 ---
 
@@ -133,7 +138,7 @@
 
 ## 5. CSS Layout 策略
 
-- **不使用框架**；以 CSS 自訂屬性（tokens，§7）＋ Flexbox / Grid。
+- **Tailwind v4 為主**，以 utility class 處理版面、間距、RWD；CSS 自訂屬性（tokens，§7）補充 Tailwind 無法涵蓋的品牌 token。
 - **避免固定高度**（notes 要求）：用 `padding` 撐高、`min-height` 例外才用；卡片等高交給 grid/flex 拉伸。
 - **置中容器**：
   ```css

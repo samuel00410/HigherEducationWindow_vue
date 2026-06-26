@@ -6,14 +6,14 @@
 
 :root {
   /* ── 品牌色 ── */
-  --c-brand: #472785;        /* Header / Section G 底色 / 主標字 */
-  --c-brand-deep: #3c1375;   /* 深紫區塊 D / F */
-  --c-brand-tint: #f2eeff;   /* 淺紫卡片底 */
-  --c-violet-soft: #6452ac;  /* 次要紫 */
+  --c-brand: #472785; /* Header / Section G 底色 / 主標字 */
+  --c-brand-deep: #3c1375; /* 深紫區塊 D / F */
+  --c-brand-tint: #f2eeff; /* 淺紫卡片底 */
+  --c-violet-soft: #6452ac; /* 次要紫 */
 
   /* ── 桃 / 米 ── */
-  --c-peach: #ffe7d6;        /* CTA 條底 / 深底副標字 */
-  --c-cream: #fff5ab;        /* 強調黃（優惠標） */
+  --c-peach: #ffe7d6; /* CTA 條底 / 深底副標字 */
+  --c-cream: #fff5ab; /* 強調黃（優惠標） */
 
   /* ── 紅（聯合報 logo / 獨標） ── */
   --c-accent-red: #cb2529;
@@ -56,10 +56,10 @@
   --section-pad-y: 40px;
 
   /* ── 圓角 ── */
-  --radius-pill: 50px;       /* 膠囊按鈕 / 外框 */
-  --radius-block: 80px;      /* 深紫大區塊 */
-  --radius-block-top: 80px 80px 0 0;  /* Section G 上圓角 */
-  --radius-brand: 8px 8px 40px 8px;   /* 招牌不對稱圓角 */
+  --radius-pill: 50px; /* 膠囊按鈕 / 外框 */
+  --radius-block: 80px; /* 深紫大區塊 */
+  --radius-block-top: 80px 80px 0 0; /* Section G 上圓角 */
+  --radius-brand: 8px 8px 40px 8px; /* 招牌不對稱圓角 */
   --radius-card: 24px;
 }
 

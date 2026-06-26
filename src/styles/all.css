@@ -6,3 +6,21 @@
 
 /* 3. CSS Reset + Base element styles + .container */
 @import './base.css';
+
+@theme {
+  /* 字體顏色 */
+  --color-brand: var(--c-brand);
+  --color-brand-deep: var(--c-brand-deep);
+  --color-brand-tint: var(--c-brand-tint);
+  --color-peach: var(--c-peach);
+  --color-cream: var(--c-cream);
+  --color-accent-red: var(--c-accent-red);
+
+  /* 字體大小 */
+  --text-hero-sub: var(--fs-hero-sub);
+  --text-h2: var(--fs-h2);
+  --text-h2-sub: var(--fs-h2-sub);
+  --text-card-title: var(--fs-card-title);
+  --text-body: var(--fs-body);
+  --text-small: var(--fs-small);
+}

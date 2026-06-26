@@ -1,10 +1,17 @@
 <template>
   <!-- A: Header Bar — 品牌紫 #472785，高 60px，logo + 訂閱 CTA -->
-  <header class="site-header"></header>
+  <NmdDigitalHeader
+    class="header-digital"
+    custom-bg="var(--c-brand)"
+    url-query="?utm_source=landing_page"
+    text-theme="white"
+  >
+    訂閱<NmdSubTextHide>享</NmdSubTextHide>首年優惠
+  </NmdDigitalHeader>
 
   <main>
     <!-- B: Hero / section01 — 全幅背景照，高教視窗標題 + feature pills ×3 -->
-    <section class="hero"></section>
+    <HeroSection />
 
     <!-- C: 3大高教議題 — 白底 + 淺紫卡，3欄 issue-card + CTA 條 -->
     <section class="issues"></section>
@@ -34,6 +41,9 @@
   </footer>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { NmdDigitalHeader, NmdSubTextHide } from '@udn-digital-center/common-components'
+import HeroSection from '@/components/HeroSection.vue'
+</script>
 
 <style scoped></style>

@@ -1,0 +1,77 @@
+# 程式碼風格規範
+
+## 技術棧
+
+- **Tailwind CSS v4**：樣式主力，utility class 優先
+- **SCSS**：副線，僅用於 UDN 元件庫客製化、`:deep()` 覆寫
+
+---
+
+## Tailwind 風格
+
+### 使用原則
+
+- 版面（flex/grid）、間距（p/m/gap）、顏色、RWD 響應式 → 全用 Tailwind class
+- 不要同時用 Tailwind 和 SCSS 寫同一段樣式，避免優先權衝突
+- RWD 用 Tailwind 的前綴：`sm:` `md:` `lg:` `xl:`
+
+### 全域共用資源
+
+- Design token 定義於 `src/styles/tokens.css`（CSS 自訂屬性）
+- Tailwind 無法直接覆蓋的品牌值（如不對稱圓角）用 `[--radius-brand]` 或 inline style
+
+### 常用設計 Token
+
+| Token | 值 | 用途 |
+| ----- | -- | ---- |
+| `--c-brand` | `#472785` | Header / 區塊G底 |
+| `--c-brand-deep` | `#3c1375` | 深紫區塊 D/F |
+| `--c-brand-tint` | `#f2eeff` | 淺紫卡底 |
+| `--c-peach` | `#ffe7d6` | CTA 條底 |
+| `--radius-brand` | `8px 8px 40px 8px` | 招牌不對稱圓角 |
+| `--radius-block` | `80px` | 深紫大區塊圓角 |
+
+---
+
+## SCSS 風格
+
+### 使用時機（嚴格限制）
+
+1. **引入 UDN 共用元件庫**的 SCSS 變數或 mixin：
+   ```scss
+   @use '@udn-digital-center/common-components/styles/variables' as udn;
+   ```
+2. **`:deep()` 覆寫**元件內部樣式（只能在 `<style lang="scss" scoped>` 裡做）：
+   ```scss
+   :deep(.udn-component-inner) {
+     color: var(--c-brand);
+   }
+   ```
+3. 無法用 utility class 表達的複雜選擇器（如 `nth-child`、偽元素組合）
+
+### 不該用 SCSS 的情境
+
+- 版面、間距、顏色 → 改用 Tailwind
+- 全域 reset / base → 放 `src/styles/base.css`
+- Design token 定義 → 放 `src/styles/tokens.css`
+
+### 檔案位置
+
+| 檔案 | 用途 |
+| ---- | ---- |
+| `src/styles/all.css` | 主入口，import Tailwind + tokens + base |
+| `src/styles/udn-overrides.scss` | UDN 元件庫全域樣式覆寫 |
+| `src/components/**/*.vue` | 元件級 SCSS 用 `<style lang="scss" scoped>` |
+
+### 命名
+
+- SCSS 變數用 `$kebab-case`
+- 避免深層巢狀（最多 3 層），優先用 Tailwind 的組合取代
+
+---
+
+## Vue SFC 慣例
+
+- 頁面樣式：Tailwind class 寫在 template，`<style>` 僅放 `:deep()` 或特殊需求
+- 元件內有 SCSS 需求時：`<style lang="scss" scoped>`
+- 不需要 SCSS 的元件：`<style scoped>` 即可（不用 lang="scss"）

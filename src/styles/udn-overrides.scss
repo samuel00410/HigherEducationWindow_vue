@@ -1,0 +1,3 @@
+// UDN 共用元件庫的全域樣式覆寫
+// 規則：只放無法用 Tailwind class 處理、或需要穿透元件內部的樣式
+// 元件級的 :deep() 覆寫請放在各 .vue 的 <style lang="scss" scoped>
