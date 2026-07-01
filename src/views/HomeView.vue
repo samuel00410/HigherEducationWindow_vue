@@ -202,7 +202,7 @@
               alt="記者馮靖惠"
             />
             <div class="flex-1 min-w-0 flex flex-col gap-[8px]">
-              <div class="flex flex-wrap md:flex-nowrap gap-2 md:gap-3">
+              <div class="flex flex-wrap items-baseline gap-2 md:gap-3">
                 <span class="font-sans font-bold text-[30px] whitespace-nowrap text-(--c-text)"
                   >馮靖惠</span
                 >
@@ -225,7 +225,7 @@
               alt="記者許維寧"
             />
             <div class="flex-1 min-w-0 flex flex-col gap-[8px]">
-              <div class="flex flex-wrap md:flex-nowrap gap-2 md:gap-3">
+              <div class="flex flex-wrap items-baseline gap-2 md:gap-3">
                 <span class="font-sans font-bold text-[30px] whitespace-nowrap text-(--c-text)"
                   >許維寧</span
                 >
@@ -325,14 +325,14 @@
     <CompareSection />
 
     <!-- H: 國內外大獎肯定 — 白底，3張 award-card -->
-    <section class="awards"></section>
+    <AwardsSection />
 
     <!-- 新聞不只是閱讀，而是你的專屬資料庫！ -->
-    <section>
+    <div>
       <NmdService title="新聞不只是閱讀，而是你的專屬資料庫！" title-color="var(--c-brand)">
         <NmdServiceList />
       </NmdService>
-    </section>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -351,6 +351,7 @@ import {
 import HeroSection from '@/components/HeroSection.vue'
 import CompareSection from '@/components/CompareSection.vue'
 import IssuesSection from '@/components/IssuesSection.vue'
+import AwardsSection from '@/components/AwardsSection.vue'
 import questionIcon from '@/assets/question-icon.svg'
 import avatarProfessor from '@/assets/avatar-professor.svg'
 import avatarTeacher from '@/assets/avatar-teacher.svg'

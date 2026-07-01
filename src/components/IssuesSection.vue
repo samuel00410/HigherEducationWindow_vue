@@ -79,4 +79,4 @@ import reportIcon from '@/assets/report-s.svg'
 import arrowIcon from '@/assets/arrow-icon.svg'
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
