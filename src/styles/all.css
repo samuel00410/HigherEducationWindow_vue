@@ -7,11 +7,27 @@
 /* 3. CSS Reset + Base element styles + .container */
 @import './base.css';
 
+@utility container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  box-sizing: border-box;
+}
+
 @theme {
+  /* 覆寫斷點，對應設計稿 */
+  --breakpoint-sm: 744px; /* tablet */
+  --breakpoint-md: 1024px; /* desktop */
+  --breakpoint-lg: 1280px;
+  --breakpoint-xl: 1440px;
+  --breakpoint-2xl: 1920px;
+
   /* 字體顏色 */
   --color-brand: var(--c-brand);
   --color-brand-deep: var(--c-brand-deep);
   --color-brand-tint: var(--c-brand-tint);
+  --color-violet-soft: var(--c-violet-soft);
   --color-peach: var(--c-peach);
   --color-cream: var(--c-cream);
   --color-accent-red: var(--c-accent-red);

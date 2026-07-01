@@ -30,7 +30,7 @@
 
       <!-- Feature Pills -->
       <ul
-        class="flex flex-col sm:flex-row gap-3 list-none border border-white/50 rounded-(--radius-pill) px-(--space-3) py-(--space-2) lg:px-(--space-6) xl:px-(--space-9) bg-white/10"
+        class="flex flex-col sm:flex-row gap-3 list-none border border-white/50 rounded-(--radius-pill) px-(--space-3) py-(--space-2) lg:px-(--space-6) xl:px-(--space-10) bg-white/10"
         aria-label="訂閱亮點"
       >
         <li class="flex items-center gap-2 text-sm lg:text-base whitespace-nowrap">

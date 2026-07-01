@@ -2,6 +2,13 @@
    CSS Reset & Base Styles
    ───────────────────────────────────────────── */
 @layer base {
+  /* 看排版用 * */
+  /* * {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: red;
+  } */
+
   *,
   *::before,
   *::after {
@@ -62,13 +69,13 @@
    全站 Container
    ───────────────────────────────────────────── */
 
-  .container {
+  /* .container {
     width: 100%;
     max-width: var(--container-max);
     margin-inline: auto;
     padding-inline: var(--gutter);
     box-sizing: border-box;
-  }
+  } */
 
   /* 比較區 G 用寬版容器 */
   .container--wide {

@@ -14,3 +14,5 @@
 - 一律使用繁體中文回應
 - commit message 使用 Conventional Commits 格式，描述使用繁體中文
 - 程式碼中的變數名稱與註解使用英文
+
+## Imported Claude Cowork project instructions

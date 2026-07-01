@@ -45,7 +45,8 @@
   --space-6: 40px;
   --space-7: 48px;
   --space-8: 56px;
-  --space-9: 80px;
+  --space-9: 64px;
+  --space-10: 80px;
 
   /* ── Container ── */
   --container-max: 1100px;

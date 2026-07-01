@@ -15,10 +15,47 @@
 - 不要同時用 Tailwind 和 SCSS 寫同一段樣式，避免優先權衝突
 - RWD 用 Tailwind 的前綴：`sm:` `md:` `lg:` `xl:`
 
+### Tailwind v4 CSS 變數語法
+
+**v4 使用 `()` 引用 CSS 變數，不是 `[var()]`：**
+
+| 用途 | ❌ v3 / 錯誤寫法 | ✅ v4 正確寫法 |
+| ---- | ---------------- | -------------- |
+| 最大寬度 | `max-w-[var(--container-max)]` | `max-w-(--container-max)` |
+| 字級 | `text-[length:var(--fs-h2)]` | `text-(--fs-h2)` |
+| 圓角 | `rounded-[var(--radius-pill)]` | `rounded-(--radius-pill)` |
+| 間距 | `px-[var(--space-3)]` | `px-(--space-3)` |
+
+固定數值仍用 `[]`，例如 `max-w-[290px]`、`min-h-[560px]` → 這是正確的。
+
+### CSS Cascade Layer 規則
+
+**重要：`src/styles/base.css` 的所有全域樣式必須包在 `@layer base {}` 內。**
+
+Tailwind v4 的 utility class 放在 `@layer utilities`，若 base.css 的樣式**沒有放進任何 layer**，優先順序會高於所有 Tailwind utilities，導致 class 失效（例如 `max-w-[290px]` 被 `img { max-width: 100% }` 蓋掉）。
+
+```css
+/* ✅ 正確 — 包在 @layer base 裡 */
+@layer base {
+  img, svg, video {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ❌ 錯誤 — 沒有 layer，會蓋掉 Tailwind utilities */
+img, svg, video {
+  max-width: 100%;
+}
+```
+
 ### 全域共用資源
 
-- Design token 定義於 `src/styles/tokens.css`（CSS 自訂屬性）
-- Tailwind 無法直接覆蓋的品牌值（如不對稱圓角）用 `[--radius-brand]` 或 inline style
+- Design token 定義於 `src/styles/tokens.css`（CSS 自訂屬性，在 media query 內隨斷點更新）
+- Token 值會隨斷點自動響應，不需要在 Tailwind class 加 `md:` 前綴，例如：
+  - `text-(--fs-h2)` 在不同斷點自動變 28px / 36px / 44px
+- 多值 token（如 `--radius-brand: 8px 8px 40px 8px`）無法用 `()` 語法，改用 inline style：
+  - `style="border-radius: var(--radius-brand)"`
 
 ### 常用設計 Token
 
